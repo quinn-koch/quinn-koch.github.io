@@ -84,7 +84,19 @@ Due to the relatively small training dataset and the use of random sampling to b
 
 ## Results
 
-Figure X shows... [description of Figure X].
+As can be seen in Tables 1 and 2, the single decision tree model performed the best, with the highest average f1-score and accuracy score of the three models. The two ensemble models were virtually tied in both metrics and were not far behind, as all three models had accuracy scores and f1-scores close to 0.8.
+
+With respect to the target variable, all three models also made fairly balanced predictions, performing similarly well on both income categories, which can be visualized in Figure 2. In Figure 2, the top left and bottom right quadrants show the number of true negative and true positive predictions, respectively, for the model in question. The top right and bottom left quadrants show the false positives and false negatives, respectively. As can be seen in the matrix, the model performs relatively well for data in category 1 (">50K") and data in category 0 ("<= 50K"), and does not have a major bias of predicting one value significantly more often than the other. This largely owes to the preprocessing of balancing the data based on the target variable early on.
+
+FIGURE 2 HERE
+
+*Figure 2: Confusion matrix for the first training of the single decision tree model.*
+
+As for the feature importances, marital status was by far the most influential feature when averaging the feature importances between the three models over five trainings. This was by far the most conclusive feature, as all three models consistently give that feature a high importance. After marital status, years of education, capital gains, and age were fairly influential as well, as visualized in Figure 3 below.
+
+FIGURE 3 HERE
+
+*Figure 3: Average feature importance between all three models over their five trials.*
 
 ## Discussion
 
