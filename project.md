@@ -56,10 +56,18 @@ tree.fit(X_train, y_train)
 y_pred_tree = tree.predict(X_test)
 ```
 
-The code for the random forest model and boosting model was structured similarly. After training the models, they were each used to predict the target variables for the testing dataset. These predictions were then compared with the true target values from the testing dataset by calculating an accuracy score (the rate of getting predictions correct) and a f1-score (a more complex metric that seeks to balance precision and true positive rate).
+The code for the random forest model and boosting model was structured similarly. After training the models, they were each used to predict the target variables for the testing dataset. These predictions were then compared with the true target values from the testing dataset by calculating an accuracy score (the rate of getting predictions correct) and a f1-score (a more complex metric that seeks to balance precision and true positive rate). Finally, the scikit-learn functions all calculate the attribute feature_importances_, which gives an indication of the relative contribution of each feature in the model predictions. 
 
-Finally, the scikit-learn functions all calculate the attribute feature_importances_, which gives an indication of the relative contribution of each feature in the model predictions. These values are summarized for each model in figures 1, 2, and 3 below.
+Due to the relatively small training dataset and the use of random sampling to balance the race feature and income target variable, the models can produce slightly different results each time we train them. To account for this, I trained each model type five times and collected the accuracy score, f1-score, and feature importances for each training cycle. The accuracy and f1-scores are summarized in Table 1 and 2 below.
 
+| Training Run | Decision Tree | Random Forest | Boosting |
+| --- | --- | --- | --- |
+| 1 | 0.864 |	0.823 | 0.782 |
+| 2 | 0.799 |	0.805 |	0.844 |
+| 3 | 0.821 |	0.775 |	0.795 |
+| 4 | 0.836 |	0.829 |	0.816 |
+| 5 | 0.784 |	0.734 |	0.755 |
+| Mean | 0.821 |	0.793 |	0.798 |
 
 ## Results
 
