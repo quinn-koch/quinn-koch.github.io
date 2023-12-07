@@ -69,6 +69,19 @@ Due to the relatively small training dataset and the use of random sampling to b
 | 5 | 0.784 |	0.734 |	0.755 |
 | Mean | 0.821 |	0.793 |	0.798 |
 
+*Table 1: Accuracy scores for all three models over five trainings.*
+
+| Training Run | Decision Tree | Random Forest | Boosting |
+| --- | --- | --- | --- |
+| 1 | 0.877 |	0.841 |	0.802 |
+| 2 | 0.792 |	0.819 |	0.844 |
+| 3 | 0.819 |	0.793 |	0.805 |
+| 4 | 0.845 |	0.835 |	0.808 |
+| 5 | 0.815 |	0.758 |	0.776 |
+| Mean | 0.829 |	0.809 |	0.807 |
+
+*Table 2: F1-values for all three models over five trainings.*
+
 ## Results
 
 Figure X shows... [description of Figure X].
