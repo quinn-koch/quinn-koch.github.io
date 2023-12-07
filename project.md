@@ -1,16 +1,16 @@
 ## My Project
 
-I applied machine learning techniques to investigate... Below is my report.
+I applied machine learning techniques to investigate the demographic factors most closely associated with personal income for a dataset of American adults. Below is my report.
 
 ***
 
 ## Introduction 
 
-Here is a summary description of the topic. Here is the problem. This is why the problem is important.
+For this problem, I chose to use the “Adult” dataset from the UC Irvine Machine Learning Repository. This dataset is composed of 15 common demographic factors for 48,842 adults taken from the 1994 US Census. The 14 features in this dataset include age, education level, race, sex, occupation, marital-status, among others, while the target is a binary variable specifying whether an individual makes over $50,000 per year or not. The goal with this dataset was to predict whether an individual makes more than $50,000 annually based on the 14 census variables.
 
-There is some dataset that we can use to help solve this problem. This allows a machine learning approach. This is how I will solve the problem using supervised/unsupervised/reinforcement/etc. machine learning.
+This dataset naturally lends itself to a binary classification problem, and since the target variable is known (income level), I chose to use a supervised machine learning model. More specifically, I wanted to apply decision trees to this problem, as their property of being a whitebox machine learning algorithm meant that I could gain more valuable insights about the dataset’s features and analyze their relative importance in predicting the target variable. In other words I wanted to explore the question: What demographic factors are most influential in determining an American adult’s income?
 
-We did this to solve the problem. We concluded that...
+To solve this problem, I trained three types of decision tree based models from the scikit-learn Python library–a single decision tree, a random forest model with 100 estimators, and a boosting random forest model with 100 classifiers. After testing, I found that the single decision tree had the best accuracy rate and f1-score of 0.821 and 0.829, respectively, though both of the other models were not far behind, also close to 0.8 for both metrics. After conducting feature ranking on each of the models, I found that the most influential features in the models were marital status, number of years of education, age, and capital gains. Though I fell short of making any broad conclusions about the influence of these demographic features on an individual's income due to the large influence of sample selection on these models.
 
 ## Data
 
