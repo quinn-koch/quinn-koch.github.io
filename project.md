@@ -40,20 +40,26 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 ## Modelling
 
-Here are some more details about the machine learning approach, and why this was deemed appropriate for the dataset. 
+Decision trees are a versatile supervised learning model that can be used for both classification and regression problems. At its core, the decision tree algorithm attempts to create logical pathways for predicting the target variable by “splitting” entries based on their feature values. The decision tree algorithm used in this model splits on the feature with the lowest Gini impurity, which is a measure of the likelihood that an observation is incorrectly classified. Decision trees were chosen for this model primarily because of their intuitive nature and structure. The splits that the algorithm chooses to make are indicative of the relative influences of each feature on the target variable, which allows us to make greater insights into what demographic factors have the largest influence on an individual’s income. More specifically, decision trees include a metric called feature importance, which measures each feature’s contribution to the final predictions made by the model. These values can also be used to filter out extraneous features to construct a more refined model, though the dataset in this problem has few enough features that doing that is somewhat unnecessary. The first model I trained was a single decision tree with a maximum depth (number of layers/splits) of 5.
 
-The model might involve optimizing some quantity. You can include snippets of code if it is helpful to explain things.
+In addition to a base decision tree model, I also constructed two decision tree models that also use ensemble methods, namely a random forest and boosting. A random forest trains a large number of decision trees (100 in the case of my model) and aggregates their results to create a better prediction. Finally, I trained a boosting model, also with 100 estimators. Boosting is similar to a random forest in that it is composed of many decision trees, but it differs in that the model goes through multiple iterations of training, with each subsequent iteration focusing on the samples that the previous model misclassified, in a way correcting for the past model’s weaknesses. Both of these ensemble methods used trees with a maximum depth of 2, which can be that low because of the large number of estimators involved in the model.
+
+Each of these three models was trained using a function from the scikit-learn library, namely DecisionTreeClassifier, RandomForestClassifier, and GradientBoostingClassifier. These functions handle all of the calculations involved in training the models, so on my part I simply had to input my training dataset into each model and set the chosen model parameters, as seen with the code for a single decision tree below:
 
 ```python
-from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.datasets import make_classification
-X, y = make_classification(n_features=4, random_state=0)
-clf = ExtraTreesClassifier(n_estimators=100, random_state=0)
-clf.fit(X, y)
-clf.predict([[0, 0, 0, 0]])
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+
+max_depth = 5
+tree = DecisionTreeClassifier(max_depth = max_depth)
+tree.fit(X_train, y_train)
+y_pred_tree = tree.predict(X_test)
 ```
 
-This is how the method was developed.
+The code for the random forest model and boosting model was structured similarly. After training the models, they were each used to predict the target variables for the testing dataset. These predictions were then compared with the true target values from the testing dataset by calculating an accuracy score (the rate of getting predictions correct) and a f1-score (a more complex metric that seeks to balance precision and true positive rate).
+
+Finally, the scikit-learn functions all calculate the attribute feature_importances_, which gives an indication of the relative contribution of each feature in the model predictions. These values are summarized for each model in figures 1, 2, and 3 below.
+
 
 ## Results
 
