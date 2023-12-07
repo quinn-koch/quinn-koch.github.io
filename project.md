@@ -14,11 +14,29 @@ To solve this problem, I trained three types of decision tree based models from 
 
 ## Data
 
-Here is an overview of the dataset, how it was obtained and the preprocessing steps taken, with some plots!
+The Adult dataset includes 14 features and the target variable “income” for 48,842 American adults. Below is a table of all of the variables included in the dataset, as well as the type of data (binary, categorical, numeric) of each feature. According to the UCI Machine Learning Repository, the dataset had already been cleaned, so the amount of preprocessing necessary on my end was somewhat limited. Though, one small issue that came up was that when reading the data into Google Colab, the target variable “income” was being detected as having four categories, with some of the values ending in commas while others do not (for example, “>50K,” vs. “>50K”). This required a simple fix of removing all of the commas in this field with string manipulation functions, after which Python was able to detect “income” as a binary variable. This was done with the code below:
+
+```python
+y['income'] = y['income'].str.replace('.', '')
+mapping_dict = {'>50K': 1, '<=50K': 0}
+y['income'] = y['income'].replace(mapping_dict) #turn target values into binary
+```
+
+The largest data preprocessing step taken in this project involved balancing the target variable. More specifically, around 76% of the records in the original dataset had annual incomes less than or equal to $50,000, so a machine learning model trained on that dataset would be at risk of having a bias towards predicting that value. To eliminate this risk, the “<=50K” income category was downsampled so that there were equal numbers of samples with incomes “>50K” and “<=50K”. This involved randomly selecting “>50K” income records to be included in the new dataset, as done in the code chunk below. 
+
+This method can also be used to correct imbalances in the feature variables, which I did explore for the “race” feature. This involved subsetting the data for each race category, and randomly downsampling them all to the size of the category with the least number of samples, as seen below. Given that over 80% of the data falls into the “White” race category (see Figure 1), this step significantly reduced the size of the data to under 600 samples for the training dataset. This introduces more variability in the models, which I will explore further in the discussion section of this report.
+
+FIGURE 1 HERE
 
 ![](assets/IMG/datapenguin.png){: width="500" }
 
-*Figure 1: Here is a caption for my diagram. This one shows a pengiun [1].*
+*Figure 1: Samples in original Adult dataset according to "race" feature.*
+
+Another data preprocessing step undertaken was the separation of training and testing datasets, which was done with scikit-learn’s train_test_split() function, as seen in the code chunk below. I assigned 80% of the data into the training dataset and 20% of the data into the testing dataset. This is a crucial step, as having a separate testing dataset that the model isn’t trained on means that we can accurately test the model’s performance and avoid overfitting.
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
 
 ## Modelling
 
