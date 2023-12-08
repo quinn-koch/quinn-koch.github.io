@@ -28,9 +28,9 @@ This method can also be used to correct imbalances in the feature variables, whi
 
 FIGURE 1 HERE
 
-![](assets/IMG/datapenguin.png){: width="500" }
+![](assets/IMG/race.png)
 
-*Figure 1: Samples in original Adult dataset according to "race" feature.*
+*Figure 1: Number of samples in original Adult dataset according to "race" feature.*
 
 Another data preprocessing step undertaken was the separation of training and testing datasets, which was done with scikit-learn’s train_test_split() function, as seen in the code chunk below. I assigned 80% of the data into the training dataset and 20% of the data into the testing dataset. This is a crucial step, as having a separate testing dataset that the model isn’t trained on means that we can accurately test the model’s performance and avoid overfitting.
 
