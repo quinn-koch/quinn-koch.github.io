@@ -8,15 +8,35 @@ Below is my report.
 
 ## Introduction 
 
-For this problem, I chose to use the “Adult” dataset from the UC Irvine Machine Learning Repository[1]. This dataset is composed of 15 common demographic factors for 48,842 adults taken from the 1994 US Census. The 14 features in this dataset include age, education level, race, sex, occupation, marital-status, among others, while the target is a binary variable specifying whether an individual makes over $50,000 per year or not. The goal with this dataset was to predict whether an individual makes more than $50,000 annually based on the 14 census variables.
+For this problem, I chose to use the “Adult” dataset from the UC Irvine Machine Learning Repository[1]. This dataset is composed of 15 common demographic factors for 48,842 adults surveyed in the 1994 US Census. The 14 features in this dataset include age, education level, race, sex, occupation, marital-status, among others. The target is a binary variable specifying whether an individual makes over $50,000 per year or not. The goal with this dataset was to predict whether an individual made more than $50,000 annually based on the 14 census variables.
 
 This dataset naturally lends itself to a binary classification problem, and since the target variable is known (income level), I chose to use a supervised machine learning model. More specifically, I wanted to apply decision trees to this problem, as their property of being a whitebox machine learning algorithm meant that I could gain more valuable insights about the dataset’s features and analyze their relative importance in predicting the target variable. In other words I wanted to explore the question: What demographic factors are most influential in determining an American adult’s income?
 
-To solve this problem, I trained three types of decision tree based models from the scikit-learn Python library–a single decision tree, a random forest model with 100 estimators, and a boosting random forest model with 100 classifiers. After testing, I found that the single decision tree had the best accuracy rate and f1-score of 0.821 and 0.829, respectively, though both of the other models were not far behind, also close to 0.8 for both metrics. After conducting feature ranking on each of the models, I found that the most influential features in the models were marital status, number of years of education, age, and capital gains. Though I fell short of making any broad conclusions about the influence of these demographic features on an individual's income due to the large influence of sample selection on these models.
+To solve this problem, I trained three types of decision tree based models from the scikit-learn Python library: a single decision tree, a random forest model with 100 estimators, and a boosting random forest model with 100 classifiers. After testing, I found that the single decision tree had the best accuracy rate and f1-score of 0.821 and 0.829, respectively, though both of the other models were not far behind, also close to 0.8 for both metrics. After conducting feature ranking on each of the models, I found that the most influential features in the models were marital status, number of years of education, age, and capital gains. However, I fell short of making any broad conclusions about the influence of these demographic features on an individual's income due to the large influence of sample selection on these models.
 
 ## Data
 
-The Adult dataset includes 14 features and the target variable “income” for 48,842 American adults. Below is a table of all of the variables included in the dataset, as well as the type of data (binary, categorical, numeric) of each feature. According to the UCI Machine Learning Repository, the dataset had already been cleaned, so the amount of preprocessing necessary on my end was somewhat limited. Though, one small issue that came up was that when reading the data into Google Colab, the target variable “income” was being detected as having four categories, with some of the values ending in commas while others do not (for example, “>50K,” vs. “>50K”). This required a simple fix of removing all of the commas in this field with string manipulation functions, after which Python was able to detect “income” as a binary variable. This was done with the code below:
+| Name | Role | Type |
+| --- | --- | --- |
+| age | Feature | Integer |
+| workclass | Feature | Categorical |
+| fnlwgt | Feature | Integer |
+| education | Feature | Categorical |
+| education-num | Feature | Integer |
+| marital-status | Feature | Categorical |
+| occupation | Feature | Categorical |
+| relationship | Feature | Categorical |
+| race | Feature | Categorical |
+| sex | Feature | Binary |
+| capital-gain | Feature | Integer |
+| capital-loss | Feature | Integer |
+| hours-per-week | Feature | Integer |
+| native-country | Feature | Categorical |
+| income | Target | Binary |
+
+*Table 1: Summary of the variables in the dataset.*
+
+The Adult dataset includes 14 features and the target variable “income” for 48,842 American adults. Table 1 shows all of the variables included in the dataset, as well as the type of data (binary, categorical, numeric) of each feature. According to the UCI Machine Learning Repository, the dataset had already been cleaned, so the amount of preprocessing necessary on my end was somewhat limited. Though, one small issue that came up was that when reading the data into Google Colab, the target variable “income” was being detected as having four categories, with some of the values ending in commas while others do not (for example, “>50K,” vs. “>50K”). This required a simple fix of removing all of the commas in this field with string manipulation functions, after which Python was able to detect “income” as a binary variable. This was done with the code below:
 
 ```python
 y['income'] = y['income'].str.replace('.', '')
@@ -58,7 +78,7 @@ y_pred_tree = tree.predict(X_test)
 
 The code for the random forest model and boosting model was structured similarly. After training the models, they were each used to predict the target variables for the testing dataset. These predictions were then compared with the true target values from the testing dataset by calculating an accuracy score (the rate of getting predictions correct) and a f1-score (a more complex metric that seeks to balance precision and true positive rate). Finally, the scikit-learn functions all calculate the attribute feature_importances_, which gives an indication of the relative contribution of each feature in the model predictions. 
 
-Due to the relatively small training dataset and the use of random sampling to balance the race feature and income target variable, the models can produce slightly different results each time we train them. To account for this, I trained each model type five times and collected the accuracy score, f1-score, and feature importances for each training cycle. The accuracy and f1-scores are summarized in Table 1 and 2 below.
+Due to the relatively small training dataset and the use of random sampling to balance the race feature and income target variable, the models can produce slightly different results each time we train them. To account for this, I trained each model type five times and collected the accuracy score, f1-score, and feature importances for each training cycle. The accuracy and f1-scores are summarized in Table 2 and 3 below.
 
 | Training Run | Decision Tree | Random Forest | Boosting |
 | --- | --- | --- | --- |
@@ -69,7 +89,7 @@ Due to the relatively small training dataset and the use of random sampling to b
 | 5 | 0.784 |	0.734 |	0.755 |
 | Mean | 0.821 |	0.793 |	0.798 |
 
-*Table 1: Accuracy scores for all three models over five trainings.*
+*Table 2: Accuracy scores for all three models over five trainings.*
 
 | Training Run | Decision Tree | Random Forest | Boosting |
 | --- | --- | --- | --- |
@@ -80,7 +100,7 @@ Due to the relatively small training dataset and the use of random sampling to b
 | 5 | 0.815 |	0.758 |	0.776 |
 | Mean | 0.829 |	0.809 |	0.807 |
 
-*Table 2: F1-values for all three models over five trainings.*
+*Table 3: F1-values for all three models over five trainings.*
 
 ## Results
 
