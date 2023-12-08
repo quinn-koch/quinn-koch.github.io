@@ -1,4 +1,4 @@
-## My Project
+## Investigating American Adult Income with Demographic Factors and Decision Trees
 
 I applied machine learning techniques to investigate the demographic factors most closely associated with personal income for a dataset of American adults. Below is my report.
 
@@ -112,7 +112,7 @@ FIGURE 4 HERE
 
 After experimenting with different data subsets and decision trees models, we were able to construct three fairly effective classifiers for income based on the target variables. These models strongly rely on marital status as by far the most important factor in predicting income, while years of education, capital gains, and age were also somewhat notable in this regard.
 
-However, this report falls short of making any strong conclusions about which demographic factors have the largest influence on income. A more robust dataset and a multitude of models would be necessary to even begin attempting to answer this question with a machine learning approach. Given how much balancing the dataset for race influenced the feature rankings, a future investigation would need to train models on datasets that have balanced other features to see if there is an overarching trend in the feature importances.
+However, this report falls short of making any strong conclusions about which demographic factors have the largest influence on income. A more robust dataset and a multitude of models would be necessary to even begin attempting to answer this question with a machine learning approach. Given how much balancing the dataset for race influenced the feature rankings, a future investigation would need to train models on datasets that have balanced other features to see if there is an overarching trend in the feature importances. Additionally, this dataset is limited in that it just provides incomes as binary values as above or below $50,000 per year. Repeating this investigation with data that distinguishes between more income levels would be insightful, as different factors could be influential in determining someone's income at higher or lower levels.
 
 ## References
 [1] DALL-E 3
