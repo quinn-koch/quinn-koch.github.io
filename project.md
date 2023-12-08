@@ -102,21 +102,17 @@ FIGURE 3 HERE
 
 While all three models perform decently well (an f1-score above 0.7 is generally considered good -- CITE THIS), significant limitations of the model arise from the decisions made in data preprocessing, especially when it comes to resampling and balancing variables. Balancing the sample sizes based on the target variable was absolutely necessary to create a useful model, as otherwise a model could have predicted the "<=50K" category every time and still achieve an accuracy score of 76% (though the f1-score would have been much lower). However, the choice to balance feature variables like race are much trickier, as doing this rapidly diminishes the size of the dataset. Race was not the only imbalanced feature variable, but choosing to balance the dataset based on more variables would have reduced the size of the dataset to the point where it could no longer train a useful model.
 
-Choosing to resample for a different feature would significantly change the composition of the training dataset and leave us with completely different models. This is particularly important to note when we talk about feature importances, as different features may be deemed important depending on which features we decide to balance. This is illustrated below in Feature 4, which shows the feature rankings averaged for the three models when trained on a dataset that hasn't been balanced for race (so over 80% of the samples are in the "White" category now).
+Choosing to resample for a different feature would significantly change the composition of the training dataset and leave us with completely different models. This is particularly important to note when we talk about feature importances, as different features may be deemed important depending on which features we decide to balance. This is illustrated below in Feature 4, which shows the feature rankings averaged for the three models when trained on a dataset that hasn't been balanced for race (so over 80% of the samples are in the "White" category now). For these models, relationship (to the head of household) is now the dominant feature, whereas marital status barely has any influence on the models. These models produce relatively strong accuracy scores and f1-scores (as high as 0.837 and 0.841, respectively, for boosting), so this difference in feature ranking doesn't necessarily come from one model being incorrect or inferior to the other. Choosing how to preprocess data for machine learning can be inherently subjective, which is a major limitation of this investigation.
 
 FIGURE 4 HERE
 
 *Figure 4: Average feature importance between all three models without balancing for race.*
 
-As can be seen in Figure 4, relationship (to the head of household) is now the dominant feature, whereas marital status barely has any influence on the models. This is the primary reason why this report falls short of making any strong conclusions about which demographic factors have the largest influence on income. A more robust dataset and a multitude of models would be necessary to even begin attempting to answer this question with this machine learning approach.
-
 ## Conclusion
 
-Here is a brief summary. From this work, the following conclusions can be made:
-* first conclusion
-* second conclusion
+After experimenting with different data subsets and decision trees models, we were able to construct three fairly effective classifiers for income based on the target variables. These models strongly rely on marital status as by far the most important factor in predicting income, while years of education, capital gains, and age were also somewhat notable in this regard.
 
-Here is how this work could be developed further in a future project.
+However, this report falls short of making any strong conclusions about which demographic factors have the largest influence on income. A more robust dataset and a multitude of models would be necessary to even begin attempting to answer this question with a machine learning approach. Given how much balancing the dataset for race influenced the feature rankings, a future investigation would need to train models on datasets that have balanced other features to see if there is an overarching trend in the feature importances.
 
 ## References
 [1] DALL-E 3
