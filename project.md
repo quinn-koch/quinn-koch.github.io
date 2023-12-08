@@ -86,7 +86,7 @@ Due to the relatively small training dataset and the use of random sampling to b
 
 As can be seen in Tables 1 and 2, the single decision tree model performed the best, with the highest average f1-score and accuracy score of the three models. The two ensemble models were virtually tied in both metrics and were not far behind, as all three models had accuracy scores and f1-scores close to 0.8.
 
-With respect to the target variable, all three models also made fairly balanced predictions, performing similarly well on both income categories, which can be visualized in Figure 2. In Figure 2, the top left and bottom right quadrants show the number of true negative and true positive predictions, respectively, for the model in question. The top right and bottom left quadrants show the false positives and false negatives, respectively. As can be seen in the matrix, the model performs relatively well for data in category 1 (">50K") and data in category 0 ("<= 50K"), and does not have a major bias of predicting one value significantly more often than the other. This largely owes to the preprocessing of balancing the data based on the target variable early on.
+With respect to the target variable, all three models also made fairly balanced predictions, performing similarly well on both income categories, which can be visualized in Figure 2. In Figure 2, the top left and bottom right quadrants show the number of true negative and true positive predictions, respectively, for the model in question. The top right and bottom left quadrants show the false positives and false negatives, respectively. As can be seen in the matrix, the model performs relatively well for data in category 1 (">50K") and data in category 0 ("<= 50K"), and does not have a major bias of predicting one value significantly more often than the other. This largely owes to the preprocessing of balancing the data based on the target variable early on. Figure 2 just vizualizes only a single training of the decision tree model, but these values are factored into the f1-score for each model, so it is not necessary to visualize a confusion matrix for each model that was trained. 
 
 FIGURE 2 HERE
 
@@ -100,7 +100,15 @@ FIGURE 3 HERE
 
 ## Discussion
 
-From Figure X, one can see that... [interpretation of Figure X].
+While all three models perform decently well (an f1-score above 0.7 is generally considered good -- CITE THIS), significant limitations of the model arise from the decisions made in data preprocessing, especially when it comes to resampling and balancing variables. Balancing the sample sizes based on the target variable was absolutely necessary to create a useful model, as otherwise a model could have predicted the "<=50K" category every time and still achieve an accuracy score of 76% (though the f1-score would have been much lower). However, the choice to balance feature variables like race are much trickier, as doing this rapidly diminishes the size of the dataset. Race was not the only imbalanced feature variable, but choosing to balance the dataset based on more variables would have reduced the size of the dataset to the point where it could no longer train a useful model.
+
+Choosing to resample for a different feature would significantly change the composition of the training dataset and leave us with completely different models. This is particularly important to note when we talk about feature importances, as different features may be deemed important depending on which features we decide to balance. This is illustrated below in Feature 4, which shows the feature rankings averaged for the three models when trained on a dataset that hasn't been balanced for race (so over 80% of the samples are in the "White" category now).
+
+FIGURE 4 HERE
+
+*Figure 4: Average feature importance between all three models without balancing for race.*
+
+As can be seen in Figure 4, relationship (to the head of household) is now the dominant feature, whereas marital status barely has any influence on the models. This is the primary reason why this report falls short of making any strong conclusions about which demographic factors have the largest influence on income. A more robust dataset and a multitude of models would be necessary to even begin attempting to answer this question with this machine learning approach.
 
 ## Conclusion
 
