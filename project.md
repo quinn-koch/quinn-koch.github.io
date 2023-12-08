@@ -88,7 +88,7 @@ As can be seen in Tables 1 and 2, the single decision tree model performed the b
 
 With respect to the target variable, all three models also made fairly balanced predictions, performing similarly well on both income categories, which can be visualized in Figure 2. In Figure 2, the top left and bottom right quadrants show the number of true negative and true positive predictions, respectively, for the model in question. The top right and bottom left quadrants show the false positives and false negatives, respectively. As can be seen in the matrix, the model performs relatively well for data in category 1 (">50K") and data in category 0 ("<= 50K"), and does not have a major bias of predicting one value significantly more often than the other. This largely owes to the preprocessing of balancing the data based on the target variable early on. Figure 2 just vizualizes only a single training of the decision tree model, but these values are factored into the f1-score for each model, so it is not necessary to visualize a confusion matrix for each model that was trained. 
 
-![](assets/IMG/con1.png)
+![](assets/IMG/con_1.png)
 
 *Figure 2: Confusion matrix for the first training of the single decision tree model.*
 
