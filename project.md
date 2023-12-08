@@ -2,6 +2,7 @@
 
 I applied machine learning techniques to investigate the demographic factors most closely associated with personal income for a dataset of American adults. My code can be found at:
 https://colab.research.google.com/drive/1kZJieswbBIOGf-One315Nhtnp_KrzMlI?usp=sharing
+
 Below is my report.
 
 ***
