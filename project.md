@@ -114,7 +114,9 @@ However, this report falls short of making any strong conclusions about which de
 
 ## References
 [1] Becker, Barry & Kohavi, Ronny. (1996). Adult. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20.
+
 [2] Pedregosa et al. (2011). Scikit-learn: Machine Learning in Python, JMLR 12, pp. 2825-2830.
+
 [3] Bortnik, Jacob & Lozinski, Alexander (2023). Introduction to Machine Learning for Physical Sciences Course Website. 
 
 [back](./)
