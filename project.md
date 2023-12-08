@@ -1,4 +1,4 @@
-## Investigating American Adult Income with Demographic Factors and Decision Trees
+## Investigating American Adult Income with Decision Trees
 
 I applied machine learning techniques to investigate the demographic factors most closely associated with personal income for a dataset of American adults. Below is my report.
 
@@ -6,7 +6,7 @@ I applied machine learning techniques to investigate the demographic factors mos
 
 ## Introduction 
 
-For this problem, I chose to use the “Adult” dataset from the UC Irvine Machine Learning Repository. This dataset is composed of 15 common demographic factors for 48,842 adults taken from the 1994 US Census. The 14 features in this dataset include age, education level, race, sex, occupation, marital-status, among others, while the target is a binary variable specifying whether an individual makes over $50,000 per year or not. The goal with this dataset was to predict whether an individual makes more than $50,000 annually based on the 14 census variables.
+For this problem, I chose to use the “Adult” dataset from the UC Irvine Machine Learning Repository[1]. This dataset is composed of 15 common demographic factors for 48,842 adults taken from the 1994 US Census. The 14 features in this dataset include age, education level, race, sex, occupation, marital-status, among others, while the target is a binary variable specifying whether an individual makes over $50,000 per year or not. The goal with this dataset was to predict whether an individual makes more than $50,000 annually based on the 14 census variables.
 
 This dataset naturally lends itself to a binary classification problem, and since the target variable is known (income level), I chose to use a supervised machine learning model. More specifically, I wanted to apply decision trees to this problem, as their property of being a whitebox machine learning algorithm meant that I could gain more valuable insights about the dataset’s features and analyze their relative importance in predicting the target variable. In other words I wanted to explore the question: What demographic factors are most influential in determining an American adult’s income?
 
@@ -26,8 +26,6 @@ The largest data preprocessing step taken in this project involved balancing the
 
 This method can also be used to correct imbalances in the feature variables, which I did explore for the “race” feature. This involved subsetting the data for each race category, and randomly downsampling them all to the size of the category with the least number of samples, as seen below. Given that over 80% of the data falls into the “White” race category (see Figure 1), this step significantly reduced the size of the data to under 600 samples for the training dataset. This introduces more variability in the models, which I will explore further in the discussion section of this report.
 
-FIGURE 1 HERE
-
 ![](assets/IMG/race.png)
 
 *Figure 1: Number of samples in original Adult dataset according to "race" feature.*
@@ -44,7 +42,7 @@ Decision trees are a versatile supervised learning model that can be used for bo
 
 In addition to a base decision tree model, I also constructed two decision tree models that also use ensemble methods, namely a random forest and boosting. A random forest trains a large number of decision trees (100 in the case of my model) and aggregates their results to create a better prediction. Finally, I trained a boosting model, also with 100 estimators. Boosting is similar to a random forest in that it is composed of many decision trees, but it differs in that the model goes through multiple iterations of training, with each subsequent iteration focusing on the samples that the previous model misclassified, in a way correcting for the past model’s weaknesses. Both of these ensemble methods used trees with a maximum depth of 2, which can be that low because of the large number of estimators involved in the model.
 
-Each of these three models was trained using a function from the scikit-learn library, namely DecisionTreeClassifier, RandomForestClassifier, and GradientBoostingClassifier. These functions handle all of the calculations involved in training the models, so on my part I simply had to input my training dataset into each model and set the chosen model parameters, as seen with the code for a single decision tree below:
+Each of these three models was trained using a function from the scikit-learn library, namely DecisionTreeClassifier, RandomForestClassifier, and GradientBoostingClassifier[2]. These functions handle all of the calculations involved in training the models, so on my part I simply had to input my training dataset into each model and set the chosen model parameters, as seen with the code for a single decision tree below:
 
 ```python
 from sklearn.tree import DecisionTreeClassifier
@@ -115,7 +113,9 @@ After experimenting with different data subsets and decision trees models, we we
 However, this report falls short of making any strong conclusions about which demographic factors have the largest influence on income. A more robust dataset and a multitude of models would be necessary to even begin attempting to answer this question with a machine learning approach. Given how much balancing the dataset for race influenced the feature rankings, a future investigation would need to train models on datasets that have balanced other features to see if there is an overarching trend in the feature importances. Additionally, this dataset is limited in that it just provides incomes as binary values as above or below $50,000 per year. Repeating this investigation with data that distinguishes between more income levels would be insightful, as different factors could be influential in determining someone's income at higher or lower levels.
 
 ## References
-[1] DALL-E 3
+[1] Becker, Barry & Kohavi, Ronny. (1996). Adult. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20.
+[2] Pedregosa et al. (2011). Scikit-learn: Machine Learning in Python, JMLR 12, pp. 2825-2830.
+[3] Bortnik, Jacob & Lozinski, Alexander (2023). Introduction to Machine Learning for Physical Sciences Course Website. 
 
 [back](./)
 
