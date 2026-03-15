@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quinn Koch</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">QK</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <main class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Geography &amp; Statistics · UCLA</p>
+      <h1 class="hero-name">Quinn<br/><em>Koch</em></h1>
+      <p class="hero-tagline">Studying how climate, fire, and land interact —<br/>through data, models, and fieldwork.</p>
+      <div class="hero-cta">
+        <a href="about.html" class="btn-primary">About Me</a>
+        <a href="projects.html" class="btn-secondary">View Projects</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo-frame">
+        <img src="photo.jpg" alt="Quinn Koch" class="hero-photo" onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"/>
+        <div class="photo-placeholder-text">Photo</div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">3.92</span>
+          <span class="stat-label">GPA</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Degrees</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">NASA</span>
+          <span class="stat-label">Research Intern</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="home-highlights">
+    <div class="highlight-card">
+      <span class="highlight-icon">🔥</span>
+      <h3>Wildfire &amp; Climate</h3>
+      <p>Senior thesis on pre-industrial fire regimes in the western US using paleo data and coupled climate-ecosystem models.</p>
+    </div>
+    <div class="highlight-card">
+      <span class="highlight-icon">🛩️</span>
+      <h3>NASA SARP</h3>
+      <p>Analyzed post-fire ecosystem recovery from airborne Landsat data; presented at AGU 2025.</p>
+    </div>
+    <div class="highlight-card">
+      <span class="highlight-icon">🌍</span>
+      <h3>Global Experience</h3>
+      <p>GIS internship in Santiago, Chile — conducted entirely in Spanish — and semester study at PUC Chile.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Quinn Koch · <a href="mailto:quinnkoch@ucla.edu">quinnkoch@ucla.edu</a> · <a href="https://linkedin.com/in/quinn-koch-a1b9b6298" target="_blank">LinkedIn</a></p>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>
