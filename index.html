@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quinn Koch</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">QK</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <main class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Geography &amp; Statistics · UCLA</p>
+      <h1 class="hero-name">Quinn Koch</h1>
+      <p class="hero-tagline">Studying how climate, fire, and ecosystems interact — through data, models, and fieldwork.</p>
+      <div class="hero-cta" style="justify-content: center;">
+        <a href="projects.html" class="btn-primary">View Projects</a>
+      </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo-frame">
+        <img src="photo.jpg" alt="Quinn Koch" class="hero-photo"
+             onerror="this.style.display='none'; this.parentElement.classList.add('no-photo')"/>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num"></span>
+          <span class="stat-label"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="home-divider"></div>
+
+  <!-- ===== ABOUT CONTENT ===== -->
+  <div class="home-about-wrap">
+
+    <!-- LEFT: main about content -->
+    <div class="home-about-left">
+
+      <section class="about-section">
+        <h2>Who I Am</h2>
+        <p>I'm Quinn Koch, a fourth-year undergraduate at UCLA pursuing a B.A. in Geography and a B.S. in Statistics and Data Science, graduating in June 2026. My work sits at the intersection of earth system science and quantitative methods — I'm interested in understanding how climate variability, vegetation, and disturbance regimes like wildfire are linked across timescales.</p>
+        <p>I'm heading toward a PhD in the earth or environmental sciences, where I hope to continue using remote sensing, paleoecological records, and computational models to reconstruct past fire-climate dynamics and better anticipate future ones.</p>
+      </section>
+
+      <section class="about-section">
+        <h2>Education</h2>
+        <div class="edu-entry">
+          <div class="edu-header">
+            <span class="edu-school">University of California, Los Angeles</span>
+            <span class="edu-date">Sep 2022 – Jun 2026</span>
+          </div>
+          <p class="edu-degree">B.A. Geography &amp; B.S. Statistics and Data Science</p>
+          <p class="edu-detail"><strong>Relevant Coursework:</strong> Climatology, Hydrology, GIS, Remote Sensing, Machine Learning, Regression, Monte Carlo Methods, Causal Inference, Experimental Design, Computational Statistics, Geography Field Methods</p>
+          <p class="edu-detail"><strong>Awards:</strong> Friends of Geography Scholarship · Dr. Antony Orme Summer Research Award</p>
+          <p class="edu-detail"><strong>Semester Abroad:</strong> Pontificia Universidad Católica de Chile, Fall 2024 (coursework in Spanish)</p>
+        </div>
+        <div class="edu-entry">
+          <div class="edu-header">
+            <span class="edu-school">Berkeley High School</span>
+            <span class="edu-date">Aug 2018 – Jun 2022</span>
+          </div>
+          <p class="edu-degree">International Baccalaureate (IB) Diploma</p>
+          <p class="edu-detail">Varsity Cross Country &amp; Track captain · Model UN club president</p>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2>Skills &amp; Tools</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h4>Programming</h4>
+            <div class="skill-tags">
+              <span class="tag">R</span><span class="tag">Python</span><span class="tag">SQL</span>
+              <span class="tag">tidyverse</span><span class="tag">ggplot2</span><span class="tag">NumPy</span>
+              <span class="tag">pandas</span><span class="tag">Xarray</span><span class="tag">scikit-learn</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Software &amp; Platforms</h4>
+            <div class="skill-tags">
+              <span class="tag">ArcGIS Pro</span><span class="tag">QGIS</span><span class="tag">ENVI</span>
+              <span class="tag">Maxent</span><span class="tag">Jupyter</span><span class="tag">GitHub</span>
+              <span class="tag">NCAR HPC</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Languages</h4>
+            <div class="skill-tags">
+              <span class="tag">English (native)</span><span class="tag">Spanish (professional)</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Outside the Lab</h4>
+            <div class="skill-tags">
+              <span class="tag">Long-distance running</span><span class="tag">Cycling</span>
+              <span class="tag">Backpacking</span><span class="tag">Hiking</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- RIGHT: sidebar highlights -->
+    <aside class="home-about-right">
+      <p class="sidebar-section-title">Highlights</p>
+      <div class="highlight-card">
+        <span class="highlight-icon">🔥</span>
+        <h3>Wildfire &amp; Climate</h3>
+        <p>Senior thesis on pre-industrial fire regimes in the western US using paleo data and coupled climate-ecosystem models.</p>
+      </div>
+      <div class="highlight-card">
+        <span class="highlight-icon">🛩️</span>
+        <h3>NASA SARP</h3>
+        <p>Analyzed post-fire ecosystem recovery from airborne Landsat data; presented at AGU 2025.</p>
+      </div>
+      <div class="highlight-card">
+        <span class="highlight-icon">🌍</span>
+        <h3>Global Experience</h3>
+        <p>GIS internship in Santiago, Chile — conducted entirely in Spanish — and semester study at PUC Chile.</p>
+      </div>
+      <a href="experience.html" class="sidebar-more-link">View full experience →</a>
+    </aside>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>Made by Quinn Koch using Claude Sonnet 4.6 · <a href="mailto:quinnkoch@g.ucla.edu">quinnkoch [at] g [dot] ucla [dot] edu</a> · <a href="https://linkedin.com/in/quinn-koch-a1b9b6298" target="_blank">LinkedIn</a> · <a href="https://github.com/quinn-koch" target="_blank">GitHub</a></p>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>
